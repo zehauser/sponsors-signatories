@@ -1,2 +1,2 @@
-var csvtext = $.get("countrySet.csv")
+var csvtext = $.get("countrySet.csv", "text")
 console.log(csvtext)
