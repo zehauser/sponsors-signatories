@@ -1,1 +1,2 @@
-$( "div.output" ).text("Test")
+var csvtext = $.get("countrySet.csv")
+console.log(csvtext)

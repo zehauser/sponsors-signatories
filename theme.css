@@ -1,0 +1,12 @@
+body {
+    background-color: #5b92e5;
+}
+
+input[name="countryInput"] {
+    margin: 0 auto;
+    width: 50%;
+}
+
+input[type="submit"] {
+    display: none;
+}
