@@ -39,19 +39,19 @@ function filterSome(arr2d, pred) {
 
 function containsMatches(strArr2d, match) {
     return filterSome(strArr2d, function(str) {
-        return str.indexOf(match) !== -1
+        return str.toLowerCase().indexOf(match.toLowerCase()) !== -1
     })
 }
 
 function startsWithMatches(strArr2d, match) {
     return filterSome(strArr2d, function(str) {
-        return str.indexOf(match) === 1
+        return str.toLowerCase().indexOf(match.toLowerCase()) === 1
     })
 }
 
 function exactMatches(strArr2d, match) {
     return filterSome(strArr2d, function(str) {
-        return str === match
+        return str.toLowerCase() === match.toLowerCase()
     })
 }
 

@@ -2,5 +2,11 @@
 
 ./updateCountrySet.py
 git add -A
-git commit -m "auto deployed"
+MSG=$@
+if [ -z $MSG ] 
+then
+    MSG="auto deployed"
+fi
+
+git commit -m "$MSG"	
 git push
