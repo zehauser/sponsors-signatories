@@ -1,3 +1,5 @@
+var selectedCountries = []
+
 $( document ).ready(function() {
 
     $( "input[name='countryInput']" ).autocomplete({
@@ -57,8 +59,6 @@ function processInput(input) {
         printError(errMsg)
     }
 }
-
-var selectedCountries = []
 
 function filterSome(arr2d, pred) {
     return arr2d.filter(function(arr) {
