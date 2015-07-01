@@ -44,10 +44,12 @@ function updatePreview() {
 function processInput(input) {
     try {
         var match = getBestMatchOrThrow(input)
-        selectedCountries.push(match)
-        selectedCountries.sort()
-        updatePreview()
-        printError("")
+        if (selectedCountries.indexOf(match) === -1) {
+            selectedCountries.push(match)
+            selectedCountries.sort()
+            updatePreview()
+            printError("")     
+        }
     } catch (errMsg) {
         printError(errMsg)
     }
