@@ -28,6 +28,7 @@ function getTopMatches(input) {
     var allExact = exactMatches(allContains, input)
     var final = allExact.concat(_.difference(allStartsWith, allExact))
     final = final.concat(_.difference(allContains, final))
+    final = _difference(final,selectedCountries)
     return final.map(function(country) {
         return country[0]
     }).slice(0,4)
