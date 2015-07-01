@@ -2,6 +2,7 @@ $( document ).ready(function() {
 
     $( "input[name='countryInput']" ).autocomplete({
         autoFocus: true,
+        delay: 0,
         source: function(request, response) {
             response(getTopMatches(request.term))
         },
