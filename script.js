@@ -1,13 +1,37 @@
 $( document ).ready(function() {
 
+    $( "input[name='countryInput']" ).autocomplete({
+        autoFocus: true,
+        source: function(request, response) {
+            response(getTopMatches(request.term))
+        },
+        select: function(event, ui) {
+            $( "input[name='countryInput']" ).val(ui.item.value)
+            $("form").submit()
+            event.preventDefault()
+        }
+    })
+
     $( "form" ).submit(function (event) {
         event.preventDefault()
+        $( "input[name='countryInput']").autocomplete( "close" )
         var input = $( "input[name='countryInput']" ).val()
         $( "input[name='countryInput']" ).val("")
         processInput(input)
     })
 
 })
+
+function getTopMatches(input) {
+    var allContains = containsMatches(countrySet, input)
+    var allStartsWith = startsWithMatches(allContains, input)
+    var allExact = exactMatches(allContains, input)
+    var final = allExact.concat(_.difference(allStartsWith, allExact))
+    final = final.concat(_.difference(allContains, final))
+    return final.map(function(country) {
+        return country[0]
+    }) 
+}
 
 function printError(errMsg) {
     $( "#output" ).text(errMsg)
@@ -45,7 +69,7 @@ function containsMatches(strArr2d, match) {
 
 function startsWithMatches(strArr2d, match) {
     return filterSome(strArr2d, function(str) {
-        return str.toLowerCase().indexOf(match.toLowerCase()) === 1
+        return str.toLowerCase().indexOf(match.toLowerCase()) === 0
     })
 }
 
