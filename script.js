@@ -30,7 +30,7 @@ function getTopMatches(input) {
     final = final.concat(_.difference(allContains, final))
     return final.map(function(country) {
         return country[0]
-    }) 
+    }).slice(0,4)
 }
 
 function printError(errMsg) {
