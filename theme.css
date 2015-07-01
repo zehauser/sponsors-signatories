@@ -18,7 +18,8 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    padding: 0 50 50 0;
+    padding-left: 20%;
+    padding-right: 20%;
     margin: 0 0 0 -50%;
     text-align: center;
     color: #FFC285;
