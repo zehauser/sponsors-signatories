@@ -1,4 +1,3 @@
-var selectedCountries = []
 
 $( document ).ready(function() {
 
@@ -37,6 +36,7 @@ function getTopMatches(input) {
     allMatchesMapped = _.difference(allMatchesMapped, selectedCountries)
     return allMatchesMapped.slice(0,4)
 }
+var selectedCountries = []
 
 function printError(errMsg) {
     //$( "#output" ).text(errMsg)
