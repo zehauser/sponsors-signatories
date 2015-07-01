@@ -29,11 +29,11 @@ function getTopMatches(input) {
     var allStartsWith = startsWithMatches(allContains, input)
     var allExact = exactMatches(allContains, input)
     var allMatches = allExact.concat(_.difference(allStartsWith, allExact))
-    allMatches = allMatches.concat(_.difference(allContains, final))
+    allMatches = allMatches.concat(_.difference(allContains, allMatches))
     var allMatchesMapped = allMatches.map(function(country) {
         return country[0]
     })
-    //allMatchesMapped = _.difference(allMatchesMapped, selectedCountries)
+    allMatchesMapped = _.difference(allMatchesMapped, selectedCountries)
     return allMatchesMapped.slice(0,4)
 }
 var selectedCountries = []
