@@ -3,7 +3,7 @@
 ./updateCountrySet.py
 git add -A
 MSG=$@
-if [ -z $MSG ] 
+if [ -z "$MSG" ] 
 then
     MSG="auto deployed"
 fi
