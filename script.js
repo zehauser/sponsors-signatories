@@ -27,12 +27,13 @@ function getTopMatches(input) {
     var allContains = containsMatches(countrySet, input)
     var allStartsWith = startsWithMatches(allContains, input)
     var allExact = exactMatches(allContains, input)
-    var final = allExact.concat(_.difference(allStartsWith, allExact))
-    final = final.concat(_.difference(allContains, final))
-    final = _.difference(final,selectedCountries)
-    return final.map(function(country) {
+    var allMatches = allExact.concat(_.difference(allStartsWith, allExact))
+    allMatches = allMatches.concat(_.difference(allContains, final))
+    var allMatchesMapped = allMatches.map(function(country) {
         return country[0]
-    }).slice(0,4)
+    })
+    allMatchesMapped = _.difference(allMatchesMapped, selectedCountries)
+    return allMatchesMapped.slice(0,4)
 }
 
 function printError(errMsg) {
