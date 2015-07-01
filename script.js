@@ -35,7 +35,7 @@ function getTopMatches(input) {
 }
 
 function printError(errMsg) {
-    $( "#output" ).text(errMsg)
+    //$( "#output" ).text(errMsg)
 }
 
 function updatePreview() {
