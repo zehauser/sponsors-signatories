@@ -33,7 +33,7 @@ function getTopMatches(input) {
     var allMatchesMapped = allMatches.map(function(country) {
         return country[0]
     })
-    allMatchesMapped = _.difference(allMatchesMapped, selectedCountries)
+    //allMatchesMapped = _.difference(allMatchesMapped, selectedCountries)
     return allMatchesMapped.slice(0,4)
 }
 var selectedCountries = []
